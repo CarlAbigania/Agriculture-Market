@@ -6,4 +6,4 @@ login
 - admin123
 
 start
-- start http://localhost/Agriculture-Market/
+- start http://agri.local

@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include '../../includes/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ include 'header.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="farm_details.css">
+    <link rel="stylesheet" href="../../assets/css/farm_details.css">
 
     <style>
         .cart-container {
@@ -524,10 +524,6 @@ include 'header.php';
 
                 resetToFirstImage();
 
-                console.log(`Container: ${container.className}`);
-                console.log(`Total images: ${totalImages}`);
-                console.log(`Visible images: ${visibleImages}`);
-                console.log(`Max scroll: ${maxScroll}`);
             });
         });
     </script>
