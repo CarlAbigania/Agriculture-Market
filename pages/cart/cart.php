@@ -165,215 +165,108 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/cart.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-
-        .cart-container {
-            width: 90%;
-            max-width: 800px;
-            margin: 30px auto;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 20px;
-        }
-
-        .cart-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .cart-items {
-            margin-bottom: 20px;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f7f7f7;
-        }
-
-        .cart-item img {
-            width: 80px;
-            height: 80px;
-            border-radius: 5px;
-            object-fit: cover;
-            margin-right: 15px;
-        }
-
-        .item-info {
-            flex-grow: 1;
-        }
-
-        .item-info p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-
-        .actions button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .actions button:hover {
-            background-color: #0056b3;
-        }
-
-        .cart-total {
-            text-align: center;
-            font-size: 18px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        .address-section {
-            margin: 20px 0;
-            padding: 15px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .address-section label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .address-section textarea {
-            width: 100%;
-            height: 80px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            resize: none;
-        }
-
-        .address-section .update-btn {
-            margin-top: 10px;
-            display: inline-block;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 8px 15px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .address-section .update-btn:hover {
-            background-color: #218838;
-        }
-
-        .cart-actions {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .cart-actions a,
-        .cart-actions button {
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
-            font-size: 14px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cart-actions a.cancel-btn {
-            background-color: #dc3545;
-        }
-
-        .cart-actions a.cancel-btn:hover {
-            background-color: #b52a37;
-        }
-
-        .cart-actions button.confirm-btn {
-            background-color: #007bff;
-        }
-
-        .cart-actions button.confirm-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .error-message {
-            color: #dc3545;
-            text-align: center;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="cart-container">
-        <h2>Items in Your Cart</h2>
-
-        <?php if (!empty($error_message)): ?>
-            <p class="error-message"><?= htmlspecialchars($error_message) ?></p>
-        <?php endif; ?>
-
-        <form action="" method="POST">
-    <div class="cart-items">
-        <?php if (count($cart_items) > 0): ?>
-            <?php foreach ($cart_items as $item): ?>
-                <div class="cart-item">
-                    <img src="<?= $item['image_url'] ?>" alt="Product Image">
-                    <div class="item-info">
-                        <p><strong><?= $item['product_name'] ?></strong></p>
-                        <p>₱ <?= number_format($item['price'], 2) ?> per Bag</p>
-                        <p>Quantity: <?= $item['quantity'] ?> Bags</p>
-                    </div>
-                    <div class="actions">
-                        <button type="submit" name="edit" value="<?= $item['cart_item_id'] ?>" class="edit-btn">Add</button>
-                        <button type="submit" name="delete" value="<?= $item['cart_item_id'] ?>" class="delete-btn">Remove</button>
-                    </div>
+    <div class="cart-wrapper">
+        <div class="cart-container">
+            <!-- Left Side: Item List -->
+            <div class="cart-main">
+                <div class="cart-header">
+                    <h2>Shopping Cart</h2>
+                    <span><?php echo count($cart_items); ?> Items</span>
                 </div>
-                <input type="hidden" name="cart_item_ids[]" value="<?= $item['cart_item_id'] ?>">
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>Your cart is empty.</p>
-        <?php endif; ?>
-    </div>
 
-    <div class="cart-total">
-        <p>Total: ₱ <?= number_format($total, 2) ?></p>
-    </div>
+                <?php if (!empty($error_message)): ?>
+                    <div class="error-message">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <?= htmlspecialchars($error_message) ?>
+                    </div>
+                <?php endif; ?>
 
-    <div class="address-section">
-        <label for="delivery_address">Delivery Address:</label>
-        <textarea name="delivery_address" id="delivery_address" required><?= htmlspecialchars($delivery_address) ?></textarea>
-    </div>
+                <form action="" method="POST" id="cart-form">
+                    <div class="cart-items">
+                        <?php if (count($cart_items) > 0): ?>
+                            <?php foreach ($cart_items as $item): ?>
+                                <div class="cart-item">
+                                    <img src="<?= $item['image_url'] ?>" alt="Product Image">
+                                    <div class="item-info">
+                                        <p><strong><?= htmlspecialchars($item['product_name']) ?></strong></p>
+                                        <p class="item-price">₱ <?= number_format($item['price'], 2) ?></p>
+                                        <p class="item-quantity">Quantity: <?= $item['quantity'] ?> Units</p>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button type="submit" name="edit" value="<?= $item['cart_item_id'] ?>" class="qty-btn" title="Add More">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                        <button type="submit" name="delete" value="<?= $item['cart_item_id'] ?>" class="remove-btn">
+                                            <i class="fa-solid fa-trash-can"></i> Remove
+                                        </button>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="cart_item_ids[]" value="<?= $item['cart_item_id'] ?>">
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <div class="empty-state">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <p>Your shopping cart is currently empty.</p>
+                                <a href="../customer/dashboard.php" style="color: var(--primary-green); font-weight: 600; text-decoration: none; display: block; margin-top:15px;">Continue Shopping</a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </form>
+            </div>
 
-    <div class="cart-actions">
-        <a class="cancel-btn" href="../customer/dashboard.php">Cancel</a>
+            <!-- Right Side: Sidebar Status/Summary -->
+            <div class="cart-sidebar">
+                <form action="" method="POST">
+                    <!-- Hidden fields to preserve cart selection if needed -->
+                    <?php foreach ($cart_items as $item): ?>
+                        <input type="hidden" name="cart_item_ids[]" value="<?= $item['cart_item_id'] ?>">
+                    <?php endforeach; ?>
 
-        <?php if (count($cart_items) > 0): ?>
-            <button type="submit" name="confirm" class="confirm-btn">Confirm</button>
-        <?php else: ?>
-            <button type="button" class="confirm-btn" disabled>Confirm</button>
-        <?php endif; ?>
-    </div>
-</form>
+                    <div class="sidebar-section address-section">
+                        <h3>Delivery Information</h3>
+                        <label for="delivery_address">Shipping Address</label>
+                        <textarea name="delivery_address" id="delivery_address" placeholder="Enter your full delivery address here..." required><?= htmlspecialchars($delivery_address) ?></textarea>
+                    </div>
 
+                    <div class="sidebar-section summary-section">
+                        <h3>Order Summary</h3>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span>₱ <?= number_format($total, 2) ?></span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span style="color:#059669; font-weight:600;">FREE</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span>₱ <?= number_format($total, 2) ?></span>
+                        </div>
+                    </div>
+
+                    <div class="cart-actions">
+                        <?php if (count($cart_items) > 0): ?>
+                            <button type="submit" name="confirm" class="confirm-btn">
+                                Proceed to Checkout
+                            </button>
+                        <?php else: ?>
+                            <button type="button" class="confirm-btn" disabled>
+                                Empty Cart
+                            </button>
+                        <?php endif; ?>
+                        
+                        <a class="cancel-btn" href="../customer/dashboard.php">
+                            <i class="fa-solid fa-arrow-left"></i> Back to Shopping
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 
