@@ -14,7 +14,12 @@ if ($conn->connect_error) {
 }
 
 // Define the root URL/Path if needed
+// Define the root URL/Path if needed
 if (!defined('BASE_URL')) {
-    define('BASE_URL', '/Agriculture-Market/');
+    if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'agri.local') {
+        define('BASE_URL', '/');
+    } else {
+        define('BASE_URL', '/Agriculture-Market/');
+    }
 }
 ?>

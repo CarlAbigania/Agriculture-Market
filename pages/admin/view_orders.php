@@ -44,8 +44,42 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - View Orders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/view_products.css">
     <link rel="stylesheet" href="../../assets/css/view_orders.css">
+    <style>
+        .empty-state {
+            text-align: center;
+            padding: 80px 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 40px auto;
+            max-width: 600px;
+            border: 1px solid #eee;
+        }
+
+        .empty-state i {
+            font-size: 80px;
+            color: #005129;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .empty-state p {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .empty-state .sub-text {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 400;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -99,7 +133,11 @@ $result = $conn->query($sql);
             </tbody>
         </table>
     <?php else: ?>
-        <p>No orders found.</p>
+        <div class="empty-state">
+            <i class="fa-solid fa-box-open"></i>
+            <p>No orders have been placed yet.</p>
+            <p class="sub-text">New orders will appear here once customers start shopping.</p>
+        </div>
     <?php endif; ?>
 
     <footer class="footer-container">

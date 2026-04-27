@@ -50,3 +50,35 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #f1f1f1;
 }
+/* Empty state styles */
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin: 40px auto;
+  max-width: 600px;
+  border: 1px solid #eee;
+}
+
+.empty-state i {
+  font-size: 64px;
+  color: #005129;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+}
+
+.empty-state .sub-text {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 400;
+  margin-top: 10px;
+}

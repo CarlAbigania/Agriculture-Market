@@ -495,3 +495,35 @@ select:focus {
     font-size: 0.8rem;
   }
 }
+/* Empty state styles */
+.empty-state {
+    text-align: center;
+    padding: 60px 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin: 40px auto;
+    max-width: 500px;
+}
+
+.empty-state i {
+    font-size: 80px;
+    color: #005129;
+    margin-bottom: 25px;
+    display: block;
+    opacity: 0.8;
+}
+
+.empty-state p {
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.empty-state .sub-text {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400;
+    margin: 0;
+}

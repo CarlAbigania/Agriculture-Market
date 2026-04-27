@@ -44,7 +44,41 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/view_products.css">
+    <style>
+        .empty-state {
+            text-align: center;
+            padding: 80px 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 40px auto;
+            max-width: 600px;
+            border: 1px solid #eee;
+        }
+
+        .empty-state i {
+            font-size: 80px;
+            color: #005129;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .empty-state p {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .empty-state .sub-text {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 400;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -88,19 +122,19 @@ $conn->close();
     </form>
 
     <!-- Product Table -->
-    <div class="table-container">
-        <div class="table-header">
-            <div class="header-item">Product Name</div>
-            <div class="header-item">Category</div>
-            <div class="header-item">Price</div>
-            <div class="header-item">Stock</div>
-            <div class="header-item">Image</div>
-            <div class="header-item">Description</div>
-            <div class="header-item">Actions</div>
-        </div>
+    <?php if ($result->num_rows > 0): ?>
+        <div class="table-container">
+            <div class="table-header">
+                <div class="header-item">Product Name</div>
+                <div class="header-item">Category</div>
+                <div class="header-item">Price</div>
+                <div class="header-item">Stock</div>
+                <div class="header-item">Image</div>
+                <div class="header-item">Description</div>
+                <div class="header-item">Actions</div>
+            </div>
 
-        <div class="table-body">
-            <?php if ($result->num_rows > 0): ?>
+            <div class="table-body">
                 <?php while ($product = $result->fetch_assoc()): ?>
                     <div class="table-row">
                         <div class="table-cell"><?php echo htmlspecialchars($product['product_name']); ?></div>
@@ -117,13 +151,15 @@ $conn->close();
                         </div>
                     </div>
                 <?php endwhile; ?>
-            <?php else: ?>
-                <div class="table-row">
-                    <div class="table-cell" colspan="7">No products found.</div>
-                </div>
-            <?php endif; ?>
+            </div>
         </div>
-    </div>
+    <?php else: ?>
+        <div class="empty-state">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <p>Your product inventory is currently empty.</p>
+            <p class="sub-text">Add your first product to get started!</p>
+        </div>
+    <?php endif; ?>
 
 
     <!-- footer -->
