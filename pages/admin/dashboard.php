@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is logged in as admin
 if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin") {
-    header("Location: ../auth/login.html");
+    header("Location: ../auth/login.php");
     exit;
 }
 
@@ -71,7 +71,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Add Product</title>
-    <link rel="stylesheet" href="../../assets/css/admin_panel.css">
+    <link rel="stylesheet" href="../../assets/css/admin_dashboard.css">
 </head>
 
 <body>
@@ -92,14 +92,14 @@ $conn->close();
     </div>
 
     <div class="categories">
-        <a href="admin_panel.php">CREATE NEW PRODUCT</a>
-        <a href="admin_view.php">VIEW PRODUCTS</a>
-        <a href="admin_feedback.php">VIEW FEEDBACKS</a>
-        <a href="admin_view_orders.php">VIEW ORDERS</a>
+        <a href="dashboard.php">CREATE NEW PRODUCT</a>
+        <a href="view_products.php">VIEW PRODUCTS</a>
+        <a href="view_feedback.php">VIEW FEEDBACKS</a>
+        <a href="view_orders.php">VIEW ORDERS</a>
     </div>
 
     <h2>Add a Product</h2>
-    <form action="admin_panel.php" method="post" enctype="multipart/form-data">
+    <form action="dashboard.php" method="post" enctype="multipart/form-data">
         <label for="product_name">Product Name:</label><br>
         <input type="text" id="product_name" name="product_name" required><br><br>
 
@@ -133,8 +133,8 @@ $conn->close();
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="admin_panel.php">Create new products</a>
-                <a href="admin_view.php">View products</a>
+                <a href="dashboard.php">Create new products</a>
+                <a href="view_products.php">View products</a>
             </div>
 
             <div class="footer-contacts">

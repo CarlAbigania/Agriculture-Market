@@ -38,17 +38,17 @@ if (isset($_GET['feedback_id'])) {
 
         if ($stmt->execute()) {
             if ($stmt->affected_rows > 0) {
-                echo "<script>alert('Feedback deleted successfully.'); window.location.href='admin_feedback.php';</script>";
+                echo "<script>alert('Feedback deleted successfully.'); window.location.href='view_feedback.php';</script>";
             } else {
-                echo "<script>alert('No feedback found with the given ID.'); window.location.href='admin_feedback.php';</script>";
+                echo "<script>alert('No feedback found with the given ID.'); window.location.href='view_feedback.php';</script>";
             }
         } else {
-            echo "<script>alert('Failed to execute the delete query: " . $stmt->error . "'); window.location.href='admin_feedback.php';</script>";
+            echo "<script>alert('Failed to execute the delete query: " . $stmt->error . "'); window.location.href='view_feedback.php';</script>";
         }
 
         $stmt->close();
     } else {
-        echo "<script>alert('Failed to prepare the SQL statement: " . $conn->error . "'); window.location.href='admin_feedback.php';</script>";
+        echo "<script>alert('Failed to prepare the SQL statement: " . $conn->error . "'); window.location.href='view_feedback.php';</script>";
     }
 }
 
@@ -137,7 +137,7 @@ $result = $conn->query($sql);
         <h1>Manage Feedback</h1>
 
         <!-- Back Button Positioned on the Left -->
-        <a class="back-btn" href="admin_view.php">Back</a>
+        <a class="back-btn" href="view_products.php">Back</a>
 
         <?php
         // Check if feedback entries exist
@@ -165,8 +165,8 @@ $result = $conn->query($sql);
             function confirmDelete(feedbackId) {
             // Show confirmation popup
                 if (confirm("Are you sure you want to delete this feedback?")) {
-            // If the user clicked "OK", redirect to admin_deletefeedback.php with the feedback_id
-                window.location.href = 'admin_deletefeedback.php?feedback_id=' + feedbackId;
+            // If the user clicked "OK", redirect to delete_feedback.php with the feedback_id
+                window.location.href = 'delete_feedback.php?feedback_id=' + feedbackId;
             }
         }
         </script>

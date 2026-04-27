@@ -91,8 +91,8 @@ include '../../includes/header.php';
 
         <nav>
             <a class="link" href="home.php  ">Home</a>
-            <a class="link" href="farm.php">Farm</a>
-            <a class="link" href="../customer/customer_panel.php">Market</a>
+            <a class="link" href="../home/farm.php">Farm</a>
+            <a class="link" href="../customer/dashboard.php">Market</a>
 
             <div class="menu-icon">
                 <a href="#">
@@ -106,7 +106,7 @@ include '../../includes/header.php';
                     <span class="cart-badge"><?php echo $total_items > 0 ? $total_items : ''; ?></span>
                 </a>
             </div>
-            <a href="../contact/contact_us.html">
+            <a href="../contact/contact_us.php">
                 <button>Get in Touch</button>
             </a>
             <div class="profile-dropdown">
@@ -125,8 +125,8 @@ include '../../includes/header.php';
         <span class="close-icon">&times;</span>
         <div class="menu-links">
             <a href="#" class="menu-item"><i class="fa fa-home"></i> Home</a>
-            <a href="farm.php" class="menu-item"><i class="fa fa-tractor"></i> Farm</a>
-            <a href="../customer/customer_panel.php" class="menu-item"><i class="fa fa-store"></i> Market</a>
+            <a href="../home/farm.php" class="menu-item"><i class="fa fa-tractor"></i> Farm</a>
+            <a href="../customer/dashboard.php" class="menu-item"><i class="fa fa-store"></i> Market</a>
         </div>
     </div>
 
@@ -160,7 +160,7 @@ include '../../includes/header.php';
                     <p>Explore a wide variety of fresh, organic, and sustainable farm products, thoughtfully grown and
                         harvested directly by dedicated farmers, ensuring quality, health, and a meaningful connection
                         to the source of your food.</p>
-                    <a href="farm.php">
+                    <a href="../home/farm.php">
                         <button>Learn More</button>
                     </a>
                 </div>
@@ -320,8 +320,8 @@ include '../../includes/header.php';
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <a href="home.php   ">Home</a>
-                <a href="farm.php">Farm</a>
-                <a href="../customer/customer_panel.php">Market</a>
+                <a href="../home/farm.php">Farm</a>
+                <a href="../customer/dashboard.php">Market</a>
             </div>
 
             <div class="footer-contacts">

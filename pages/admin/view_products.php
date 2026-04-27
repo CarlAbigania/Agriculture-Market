@@ -55,7 +55,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Products</title>
-    <link rel="stylesheet" href="../../assets/css/admin_view.css">
+    <link rel="stylesheet" href="../../assets/css/view_products.css">
 </head>
 
 <body>
@@ -77,16 +77,16 @@ $conn->close();
     </div>
 
     <div class="categories">
-        <a href="admin_panel.php">CREATE NEW PRODUCT</a>
-        <a href="admin_view.php">VIEW PRODUCTS</a>
-        <a href="admin_feedback.php">VIEW FEEDBACKS</a>
-        <a href="admin_view_orders.php">VIEW ORDERS</a>
+        <a href="dashboard.php">CREATE NEW PRODUCT</a>
+        <a href="view_products.php">VIEW PRODUCTS</a>
+        <a href="view_feedback.php">VIEW FEEDBACKS</a>
+        <a href="view_orders.php">VIEW ORDERS</a>
     </div>
 
     <h2>Product Table</h2>
 
     <!-- Category Filter Dropdown -->
-    <form action="admin_view.php" method="GET">
+    <form action="view_products.php" method="GET">
         <label for="category_id">Select Category:</label>
         <select name="category_id" id="category_id" onchange="this.form.submit()">
             <option value="">All Categories</option>
@@ -123,8 +123,8 @@ $conn->close();
                         </div>
                         <div class="table-cell"><?php echo htmlspecialchars($product['description']); ?></div>
                         <div class="table-cell">
-                            <a href="admin_update.php?product_id=<?php echo $product['product_id']; ?>" class="btn-action">Edit</a> |
-                            <a href="admin_delete.php" class="btn-action">Delete</a>
+                            <a href="edit_product.php?product_id=<?php echo $product['product_id']; ?>" class="btn-action">Edit</a> |
+                            <a href="delete_product.php" class="btn-action">Delete</a>
                         </div>
                     </div>
                 <?php endwhile; ?>
@@ -149,9 +149,9 @@ $conn->close();
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="home.html">Home</a>
-                <a href="farm.html">Farm</a>
-                <a href="customer_panel.php">Market</a>
+                <a href="../home/home.php">Home</a>
+                <a href="../home/farm.php">Farm</a>
+                <a href="dashboard.php">Market</a>
             </div>
 
             <div class="footer-contacts">

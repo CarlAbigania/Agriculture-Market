@@ -4,7 +4,7 @@ include '../../includes/db.php'; // Include the DB connection
 
 // Make sure the user is logged in and has an order ID
 if (!isset($_SESSION['user_id']) || !isset($_GET['order_id'])) {
-    header("Location: ../customer/customer_panel.php");
+    header("Location: ../customer/dashboard.php");
     exit;
 }
 
@@ -55,7 +55,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Confirmation</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../assets/css/cart.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -199,7 +199,7 @@ $conn->close();
 
 
         <div class="order-actions">
-            <a href="../customer/customer_panel.php" class="cancel-btn">Back to Panel</a>
+            <a href="../customer/dashboard.php" class="cancel-btn">Back to Panel</a>
         </div>
     </div>
 </body>

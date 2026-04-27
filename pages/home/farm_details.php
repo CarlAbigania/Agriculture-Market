@@ -14,7 +14,7 @@ include 'header.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="farm_screen.css">
+    <link rel="stylesheet" href="farm_details.css">
 
     <style>
         .cart-container {
@@ -89,9 +89,9 @@ include 'header.php';
         <img src="../../assets/images/Logo.png" alt="AgriMarket Logo" style="width: 80px; height: 80px;">
 
         <nav>
-            <a class="link" href="home.php">Home</a>
-            <a class="link" href="farm.php">Farm</a>
-            <a class="link" href="../customer/customer_panel.php">Market</a>
+            <a class="link" href="../home/home.php">Home</a>
+            <a class="link" href="../home/farm.php">Farm</a>
+            <a class="link" href="../customer/dashboard.php">Market</a>
             <div class="menu-icon">
                 <a href="#">
                     <i class="ri-menu-line" style="font-size: 33px; overflow: hidden;"></i>
@@ -104,7 +104,7 @@ include 'header.php';
                     <span class="cart-badge"><?php echo $total_items > 0 ? $total_items : ''; ?></span>
                 </a>
             </div>
-            <button onclick="window.location.href = '../contact/contact_us.html';">Get in Touch</button>
+            <button onclick="window.location.href = '../contact/contact_us.php';">Get in Touch</button>
             <div class="profile-dropdown">
                 <a href="#" class="profile-icon">
                     <i class="fa fa-user-circle" style="font-size: 33px;"></i>
@@ -120,9 +120,9 @@ include 'header.php';
     <div class="menu-container">
         <span class="close-icon">&times;</span>
         <div class="menu-links">
-            <a href="home.php" class="menu-item"><i class="fa fa-home"></i> Home</a>
-            <a href="farm.php" class="menu-item"><i class="fa fa-tractor"></i> Farm</a>
-            <a href="../customer/customer_panel.php" class="menu-item"><i class="fa fa-store"></i> Market</a>
+            <a href="../home/home.php" class="menu-item"><i class="fa fa-home"></i> Home</a>
+            <a href="../home/farm.php" class="menu-item"><i class="fa fa-tractor"></i> Farm</a>
+            <a href="../customer/dashboard.php" class="menu-item"><i class="fa fa-store"></i> Market</a>
         </div>
     </div>
 
@@ -546,9 +546,9 @@ include 'header.php';
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="home.php">Home</a>
-                <a href="farm.php">Farm</a>
-                <a href="../customer/customer_panel.php">Market</a>
+                <a href="../home/home.php">Home</a>
+                <a href="../home/farm.php">Farm</a>
+                <a href="../customer/dashboard.php">Market</a>
             </div>
 
             <div class="footer-contacts">

@@ -55,8 +55,8 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - View Orders</title>
-    <link rel="stylesheet" href="../../assets/css/admin_view.css">
-    <link rel="stylesheet" href="../../assets/css/admin_view_orders.css">
+    <link rel="stylesheet" href="../../assets/css/view_products.css">
+    <link rel="stylesheet" href="../../assets/css/view_orders.css">
 </head>
 
 <body>
@@ -77,10 +77,10 @@ $result = $conn->query($sql);
     </div>
 
     <div class="categories">
-        <a href="admin_panel.php">CREATE NEW PRODUCT</a>
-        <a href="admin_view.php">VIEW PRODUCTS</a>
-        <a href="admin_feedback.php">VIEW FEEDBACKS</a>
-        <a href="admin_view_orders.php">VIEW ORDERS</a> <!-- New link added here -->
+        <a href="dashboard.php">CREATE NEW PRODUCT</a>
+        <a href="view_products.php">VIEW PRODUCTS</a>
+        <a href="view_feedback.php">VIEW FEEDBACKS</a>
+        <a href="view_orders.php">VIEW ORDERS</a> <!-- New link added here -->
     </div>
 
     <h2>All Orders</h2>
@@ -124,8 +124,8 @@ $result = $conn->query($sql);
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="admin_panel.php">Create new products</a>
-                <a href="admin_view.php">View products</a>
+                <a href="dashboard.php">Create new products</a>
+                <a href="view_products.php">View products</a>
             </div>
 
             <div class="footer-contacts">

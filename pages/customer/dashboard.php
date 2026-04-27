@@ -12,7 +12,7 @@ include '../../includes/header.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/customer_panel.css">
+    <link rel="stylesheet" href="../../assets/css/customer_dashboard.css">
     <style>
         .cart-container {
             position: relative;
@@ -87,7 +87,7 @@ include '../../includes/header.php';
         <nav>
             <a class="link" href="../home/home.php">Home</a>
             <a class="link" href="../home/farm.php">Farm</a>
-            <a class="link" href="customer_panel.php">Market</a>
+            <a class="link" href="dashboard.php">Market</a>
             <div class="menu-icon">
                 <a href="#">
                     <i class="ri-menu-line" style="font-size: 33px; overflow: hidden;"></i>
@@ -100,7 +100,7 @@ include '../../includes/header.php';
                     <span class="cart-badge"><?php echo $total_items > 0 ? $total_items : ''; ?></span>
                 </a>
             </div>
-            <a href="../contact/contact_us.html">
+            <a href="../contact/contact_us.php">
                 <button>Get in Touch</button>
             </a>
             <div class="profile-dropdown">
@@ -126,12 +126,12 @@ include '../../includes/header.php';
     </div>
 
     <div class="categories">
-        <a href="customer_panel.php?category_id=1" class="<?php echo ($categoryId == 1) ? 'active' : ''; ?>">FRUITS</a>
-        <a href="customer_panel.php?category_id=2" class="<?php echo ($categoryId == 2) ? 'active' : ''; ?>">FOOD</a>
-        <a href="customer_panel.php?category_id=3" class="<?php echo ($categoryId == 3) ? 'active' : ''; ?>">VEGETABLES</a>
-        <a href="customer_panel.php?category_id=4" class="<?php echo ($categoryId == 4) ? 'active' : ''; ?>">POULTRY</a>
-        <a href="customer_panel.php?category_id=5" class="<?php echo ($categoryId == 5) ? 'active' : ''; ?>">FISH</a>
-        <a href="customer_panel.php?category_id=6" class="<?php echo ($categoryId == 6) ? 'active' : ''; ?>">MEATS</a>
+        <a href="dashboard.php?category_id=1" class="<?php echo ($categoryId == 1) ? 'active' : ''; ?>">FRUITS</a>
+        <a href="dashboard.php?category_id=2" class="<?php echo ($categoryId == 2) ? 'active' : ''; ?>">FOOD</a>
+        <a href="dashboard.php?category_id=3" class="<?php echo ($categoryId == 3) ? 'active' : ''; ?>">VEGETABLES</a>
+        <a href="dashboard.php?category_id=4" class="<?php echo ($categoryId == 4) ? 'active' : ''; ?>">POULTRY</a>
+        <a href="dashboard.php?category_id=5" class="<?php echo ($categoryId == 5) ? 'active' : ''; ?>">FISH</a>
+        <a href="dashboard.php?category_id=6" class="<?php echo ($categoryId == 6) ? 'active' : ''; ?>">MEATS</a>
     </div>
 
     <h2>
@@ -183,7 +183,7 @@ include '../../includes/header.php';
                 <h4>Quick Links</h4>
                 <a href="../home/home.php">Home</a>
                 <a href="../home/farm.php">Farm</a>
-                <a href="customer_panel.php">Market</a>
+                <a href="dashboard.php">Market</a>
             </div>
 
             <div class="footer-contacts">
@@ -200,7 +200,7 @@ include '../../includes/header.php';
         <div class="menu-links">
             <a href="../home/home.php" class="menu-item"><i class="fa fa-home"></i> Home</a>
             <a href="../home/farm.php" class="menu-item"><i class="fa fa-tractor"></i> Farm</a>
-            <a href="customer_panel.php" class="menu-item"><i class="fa fa-store"></i> Market</a>
+            <a href="dashboard.php" class="menu-item"><i class="fa fa-store"></i> Market</a>
         </div>
     </div>
 

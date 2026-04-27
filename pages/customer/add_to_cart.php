@@ -4,7 +4,7 @@ include '../../includes/db.php';
 
 // Ensure the user is logged in
 if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
-    header("Location: ../login.html");
+    header("Location: ../login.php");
     exit();
 }
 
@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true)
 $user_id = $_SESSION['user_id'] ?? null;
 
 if (!$user_id) {
-header("Location: ../login.html");
+header("Location: ../login.php");
     exit();
 }
 
@@ -50,6 +50,6 @@ $stmt->close();
 $conn->close();
 
 // Redirect back to the customer panel with success message
-header("Location: customer_panel.php?success=Product added to cart");
+header("Location: dashboard.php?success=Product added to cart");
 exit();
 ?>

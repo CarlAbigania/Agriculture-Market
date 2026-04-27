@@ -90,9 +90,9 @@ include '../../includes/header.php';
         <img src="../../assets/images/Logo.png" alt="AgriMarket Logo" style="width: 80px; height: 80px;">
 
         <nav>
-            <a class="link" href="home.php">Home</a>
-            <a class="link" href="farm.php">Farm</a>
-            <a class="link" href="../customer/customer_panel.php">Market</a>
+            <a class="link" href="../home/home.php">Home</a>
+            <a class="link" href="../home/farm.php">Farm</a>
+            <a class="link" href="../customer/dashboard.php">Market</a>
 
             <div class="menu-icon">
                 <a href="#">
@@ -106,7 +106,7 @@ include '../../includes/header.php';
                     <span class="cart-badge"><?php echo $total_items > 0 ? $total_items : ''; ?></span>
                 </a>
             </div>
-            <a href="../contact/contact_us.html">
+            <a href="../contact/contact_us.php">
                 <button>Get in Touch</button>
             </a>
             <div class="profile-dropdown">
@@ -124,9 +124,9 @@ include '../../includes/header.php';
     <div class="menu-container">
         <span class="close-icon">&times;</span>
         <div class="menu-links">
-            <a href="home.php" class="menu-item"><i class="fa fa-home"></i> Home</a>
-            <a href="farm.php" class="menu-item"><i class="fa fa-tractor"></i> Farm</a>
-            <a href="../customer/customer_panel.php" class="menu-item"><i class="fa fa-store"></i> Market</a>
+            <a href="../home/home.php" class="menu-item"><i class="fa fa-home"></i> Home</a>
+            <a href="../home/farm.php" class="menu-item"><i class="fa fa-tractor"></i> Farm</a>
+            <a href="../customer/dashboard.php" class="menu-item"><i class="fa fa-store"></i> Market</a>
         </div>
     </div>
 
@@ -156,7 +156,7 @@ include '../../includes/header.php';
         <div class="container_home">
             <div class="home-image-wrapper">
                 <img src="../../assets/images/white_house.png" alt="White House" class="home-image">
-                <a class="circle" href="farm_screen.php">
+                <a class="circle" href="farm_details.php">
                     <button>Press Here to Enter</button>
                 </a>
             </div>

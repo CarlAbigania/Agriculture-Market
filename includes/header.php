@@ -5,7 +5,7 @@ include_once __DIR__ . '/db.php';
 
 // Ensure the user is logged in
 if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
-    header("Location: " . BASE_URL . "pages/auth/login.html");
+    header("Location: " . BASE_URL . "pages/auth/login.php");
     exit();
 }
 
@@ -14,7 +14,7 @@ $user_id = $_SESSION['user_id'] ?? null;
 
 if (!$user_id) {
     // If user_id is not set, redirect to login
-    header("Location: " . BASE_URL . "pages/auth/login.html");
+    header("Location: " . BASE_URL . "pages/auth/login.php");
     exit();
 }
 

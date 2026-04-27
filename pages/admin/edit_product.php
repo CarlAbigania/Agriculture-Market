@@ -98,7 +98,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Product</title>
-    <link rel="stylesheet" href="../../assets/css/admin_panel.css">
+    <link rel="stylesheet" href="../../assets/css/admin_dashboard.css">
 </head>
 <body>
     <header>
@@ -119,13 +119,13 @@ $conn->close();
     </div>
 
     <div class="categories">
-    <a href="admin_panel.php">CREATE NEW PRODUCT</a>
-    <a href="admin_view.php">VIEW PRODUCTS</a>
+    <a href="dashboard.php">CREATE NEW PRODUCT</a>
+    <a href="view_products.php">VIEW PRODUCTS</a>
     </div>
 
     <h2>Update Product Details</h2>
 
-    <form action="admin_update.php?product_id=<?php echo $productId; ?>" method="post" enctype="multipart/form-data">
+    <form action="edit_product.php?product_id=<?php echo $productId; ?>" method="post" enctype="multipart/form-data">
         <label for="product_name">Product Name:</label><br>
         <input type="text" id="product_name" name="product_name" value="<?php echo htmlspecialchars($product['product_name']); ?>" required><br><br>
 
@@ -160,9 +160,9 @@ $conn->close();
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="home.html">Home</a>
-                <a href="farm.html">Farm</a>
-                <a href="customer_panel.php">Market</a>
+                <a href="../home/home.php">Home</a>
+                <a href="../home/farm.php">Farm</a>
+                <a href="dashboard.php">Market</a>
             </div>
 
             <div class="footer-contacts">

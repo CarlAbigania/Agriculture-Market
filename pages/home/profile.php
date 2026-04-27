@@ -7,7 +7,7 @@ include '../../includes/db.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../userlogin/login.html"); // Redirect to login page if not logged in
+    header("Location: ../userlogin/login.php"); // Redirect to login page if not logged in
     exit();
 }
 
@@ -36,7 +36,7 @@ if (!$user) {
 </head>
 <body>
     <header>
-        <a href="home.php">Back to Home</a>
+        <a href="../home/home.php">Back to Home</a>
     </header>
 
     <main>

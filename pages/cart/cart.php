@@ -165,7 +165,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../assets/css/cart.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -364,7 +364,7 @@ $conn->close();
     </div>
 
     <div class="cart-actions">
-        <a class="cancel-btn" href="../customer/customer_panel.php">Cancel</a>
+        <a class="cancel-btn" href="../customer/dashboard.php">Cancel</a>
 
         <?php if (count($cart_items) > 0): ?>
             <button type="submit" name="confirm" class="confirm-btn">Confirm</button>

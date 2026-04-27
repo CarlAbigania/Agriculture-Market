@@ -1,51 +1,58 @@
 <?php
 session_start();
+require_once '../../includes/db.php';
 
-// Check if the user is logged in
+$error_message = '';
+$success_message = '';
+
 if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
-    header("Location: login.html");
+    header("Location: ../auth/login.php");
     exit();
 }
 
-// Database configuration
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "online_shop";
-
-// Create a database connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Get the user's email from the session
-$userEmail = $_SESSION['email']; // Ensure the email is stored in session upon login
+$userEmail = $_SESSION['email'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_address'])) {
-    // Get the new delivery address from the form
     $newDeliveryAddress = $_POST['delivery_address'];
 
-    // Validate the new address
     if (empty($newDeliveryAddress)) {
-        echo "<script>alert('Delivery address cannot be empty.'); window.location.href='delivery_info.html';</script>";
-        exit();
-    }
-
-    // Update the delivery address in the database
-    $stmt = $conn->prepare("UPDATE users SET delivery_address = ? WHERE email = ?");
-    $stmt->bind_param("ss", $newDeliveryAddress, $userEmail);
-
-    if ($stmt->execute()) {
-        echo "<script>alert('Delivery address updated successfully!'); window.location.href='customer_panel.php';</script>";
+        $error_message = 'Delivery address cannot be empty.';
     } else {
-        echo "<script>alert('Error updating address. Please try again.'); window.location.href='delivery_info.html';</script>";
+        $stmt = $conn->prepare("UPDATE users SET delivery_address = ? WHERE email = ?");
+        $stmt->bind_param("ss", $newDeliveryAddress, $userEmail);
+        if ($stmt->execute()) {
+            $success_message = 'Delivery address updated successfully!';
+        } else {
+            $error_message = 'Error updating address. Please try again.';
+        }
+        $stmt->close();
     }
-
-    $stmt->close();
 }
-
 $conn->close();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Delivery Information</title>
+</head>
+<body>
+    <div class="container" style="border: 2px solid #8e8e8e; padding: 5vh; border-radius: 15px; max-width: 500px; margin: 50px auto;">
+        <h2>Update Your Delivery Information</h2>
+        <?php if (!empty($success_message)): ?>
+            <p style="color: green; font-weight: bold;"><?php echo htmlspecialchars($success_message); ?></p>
+        <?php endif; ?>
+        <?php if (!empty($error_message)): ?>
+            <p style="color: red; font-weight: bold;"><?php echo htmlspecialchars($error_message); ?></p>
+        <?php endif; ?>
+
+        <form action="delivery_info.php" method="POST">
+            <label for="delivery_address">New Delivery Address:</label><br>
+            <textarea name="delivery_address" required></textarea><br><br>
+            <button type="submit" name="update_address">Update Address</button>
+        </form>
+        <p><a href="dashboard.php">Back to Dashboard</a></p>
+    </div>
+</body>
+</html>

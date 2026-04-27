@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
     header("Location: pages/home/home.php");
 } else {
-    header("Location: pages/auth/login.html");
+    header("Location: pages/auth/login.php");
 }
 exit();
 ?>

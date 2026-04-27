@@ -33,7 +33,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Feedback</title>
-    <link rel="stylesheet" href="../../assets/css/admin_view.css">
+    <link rel="stylesheet" href="../../assets/css/view_products.css">
 </head>
 <body>
     <header>
@@ -53,10 +53,10 @@ $result = $conn->query($sql);
     </div>
 
     <div class="categories">
-        <a href="admin_panel.php">CREATE NEW PRODUCT</a>
-        <a href="admin_view.php">VIEW PRODUCTS</a>
-        <a href="admin_feedback.php">VIEW FEEDBACKS</a>
-        <a href="admin_view_orders.php">VIEW ORDERS</a>
+        <a href="dashboard.php">CREATE NEW PRODUCT</a>
+        <a href="view_products.php">VIEW PRODUCTS</a>
+        <a href="view_feedback.php">VIEW FEEDBACKS</a>
+        <a href="view_orders.php">VIEW ORDERS</a>
     </div>
 
     <h2>Customer Feedback</h2>
@@ -79,7 +79,7 @@ $result = $conn->query($sql);
                     <div class="table-cell"><?php echo htmlspecialchars($feedback['message']); ?></div>
                     <div class="table-cell"><?php echo htmlspecialchars($feedback['created_at']); ?></div>
                     <div class="table-cell">
-                        <a href="admin_deletefeedback.php" class="btn-action">Delete</a>
+                        <a href="delete_feedback.php" class="btn-action">Delete</a>
                     </div>
                 </div>
             <?php endwhile; ?>
@@ -103,9 +103,9 @@ $result = $conn->query($sql);
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="home.html">Home</a>
-                <a href="farm.html">Farm</a>
-                <a href="customer_panel.php">Market</a>
+                <a href="../home/home.php">Home</a>
+                <a href="../home/farm.php">Farm</a>
+                <a href="dashboard.php">Market</a>
             </div>
 
             <div class="footer-contacts">

@@ -32,9 +32,9 @@ if (isset($_GET['product_id'])) {
     $stmt->bind_param("i", $product_id);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Product deleted successfully.'); window.location.href='admin_delete.php';</script>";
+        echo "<script>alert('Product deleted successfully.'); window.location.href='delete_product.php';</script>";
     } else {
-        echo "<script>alert('Failed to delete the product.'); window.location.href='admin_delete.php';</script>";
+        echo "<script>alert('Failed to delete the product.'); window.location.href='delete_product.php';</script>";
     }
 
     $stmt->close();
@@ -52,7 +52,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Delete</title>
-    <link rel="stylesheet" href="../../assets/css/admin_panel.css">
+    <link rel="stylesheet" href="../../assets/css/admin_dashboard.css">
     <style>
         body {
             background-color: #005129; /* Green background */
@@ -126,7 +126,7 @@ $result = $conn->query($sql);
         <h1>Delete a Product</h1>
 
         <!-- Back Button Positioned on the Left -->
-        <a class="back-btn" href="admin_view.php">Back</a>
+        <a class="back-btn" href="view_products.php">Back</a>
 
         <?php
         // Check if products exist
@@ -153,7 +153,7 @@ $result = $conn->query($sql);
                 // Show confirmation popup
                 if (confirm("Are you sure you want to delete this product?")) {
                     // If the user clicked "OK", redirect to delete_product.php with the product_id
-                    window.location.href = 'admin_delete.php?product_id=' + productId;
+                    window.location.href = 'delete_product.php?product_id=' + productId;
                 }
             }
         </script>
