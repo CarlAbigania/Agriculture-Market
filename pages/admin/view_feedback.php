@@ -95,6 +95,17 @@ $result = $conn->query($sql);
                 window.location.href = '../../includes/logout.php'; // Change this URL to your logout script
             }
         }
+
+        // Auto-dismiss toasts after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = document.querySelectorAll('.success-message, .error-message');
+            messages.forEach(msg => {
+                setTimeout(() => {
+                    msg.style.animation = 'toastFadeOut 0.5s forwards';
+                    setTimeout(() => msg.remove(), 500);
+                }, 5000);
+            });
+        });
     </script>
 
 </body>

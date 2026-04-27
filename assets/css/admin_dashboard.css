@@ -118,32 +118,61 @@ header .logout-btn:active {
     font-weight: 300;
 }
 
-/* Status Messages */
+/* Status Messages (Floating Toasts) */
 .success-message, .error-message {
-    max-width: 900px;
-    margin: 20px auto;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    max-width: 350px;
+    width: auto;
     padding: 16px 24px;
     border-radius: 12px;
-    font-weight: 500;
-    text-align: center;
-    animation: slideDown 0.4s ease-out;
+    font-weight: 600;
+    text-align: left;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    animation: toastSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    border-left: 6px solid transparent;
 }
 
-@keyframes slideDown {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.success-message::before {
+    content: "\f058";
+    font-family: "Font Awesome 6 Free";
+    margin-right: 12px;
+    font-size: 1.25rem;
+}
+
+.error-message::before {
+    content: "\f06a";
+    font-family: "Font Awesome 6 Free";
+    margin-right: 12px;
+    font-size: 1.25rem;
+}
+
+@keyframes toastSlideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toastFadeOut {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(20px); }
 }
 
 .success-message {
     background-color: #DEF7EC;
     color: #03543F;
     border: 1px solid #BCF0DA;
+    border-left-color: #059669;
 }
 
 .error-message {
     background-color: #FDE8E8;
     color: #9B1C1C;
     border: 1px solid #FBD5D5;
+    border-left-color: #DC2626;
 }
 
 .quote {
