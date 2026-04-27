@@ -181,7 +181,7 @@ nav a button:hover {
 
 /* hero section */
 .hero-container {
-  background: url("assets/images/hero_background.jpg") no-repeat center center / cover;
+  background: url("../images/hero_background.jpg") no-repeat center center / cover;
   width: 100%;
 }
 
@@ -277,7 +277,7 @@ nav a button:hover {
 
 /* additional information section */
 .information-container {
-  background: url("assets/images/box_background.jpg") no-repeat center center / cover;
+  background: url("../images/box_background.jpg") no-repeat center center / cover;
   width: 100%;
 }
 
@@ -371,8 +371,8 @@ nav a button:hover {
 
 /* offer section */
 .offer-container {
-  background: url("assets/images/flower1.png") left top no-repeat,
-    url("assets/images/flower2.png") right top no-repeat, #e8efe9;
+  background: url("../images/flower1.png") left top no-repeat,
+    url("../images/flower2.png") right top no-repeat, #e8efe9;
   background-size: 20vw, 20vw, auto;
   width: 100%;
   padding: 5em 2rem;
@@ -498,7 +498,7 @@ nav a button:hover {
 
 /* about us section */
 .about-container {
-  background: url("assets/images/about_us_background.jpg") no-repeat center center / cover;
+  background: url("../images/about_us_background.jpg") no-repeat center center / cover;
   width: 100%;
 }
 
@@ -601,7 +601,7 @@ nav a button:hover {
     flex-direction: column;
     width: 90%;
     gap: 20px;
-    background: url("assets/images/about_us_background2.png")
+    background: url("../images/about_us_background2.png")
       no-repeat center center / cover;
     padding: 20px;
     overflow: hidden;
@@ -645,7 +645,7 @@ nav a button:hover {
 
 /* partner section */
 .partner-container {
-  background: url("assets/images/partners_background.jpg") no-repeat center center / cover;
+  background: url("../images/partners_background.jpg") no-repeat center center / cover;
   width: 100%;
   transition: background-color 0.3s ease;
   position: relative;
@@ -711,7 +711,7 @@ header .logout-btn:hover {
 
 .partner-container::before {
   content: "";
-  background: url("assets/images/flower3.png") -70px -125px / 30%
+  background: url("../images/flower3.png") -70px -125px / 30%
     no-repeat;
   position: absolute;
   top: 0;
@@ -767,7 +767,7 @@ header .logout-btn:hover {
 
 /* Join Us Section */
 .join-us-container {
-  background: url("assets/images/fruit1.png") top right / 30% no-repeat,
+  background: url("../images/fruit1.png") top right / 30% no-repeat,
     rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
@@ -904,7 +904,7 @@ header .logout-btn:hover {
 }
 
 .footer-logo .logo-background {
-  background: url("/AgriMarket/assets/images/Logo.png") 0 0 / 40% no-repeat;
+  background: url("../images/Logo.png") 0 0 / 40% no-repeat;
   background-size: 60px 60px;
   margin-bottom: 15px;
   height: 60px;

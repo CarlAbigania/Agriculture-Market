@@ -4,23 +4,12 @@ session_start();
 
 // Check if the user is logged in as admin
 if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin") {
-    header("Location: login.php");
+    header("Location: ../auth/login.php");
     exit;
 }
 
-// Database configuration
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "online_shop";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Database connection
+require_once '../../includes/db.php';
 
 // Check if products exist
 if (isset($_GET['product_id'])) {

@@ -1,5 +1,5 @@
 <?php
-include 'db_connection.php'; // Include the database connection
+include 'db.php'; // Include the database connection
 
 // Get the JSON data from the frontend
 $data = json_decode(file_get_contents("php://input"), true);
