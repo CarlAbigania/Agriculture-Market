@@ -532,9 +532,7 @@ include '../../includes/header.php';
     <footer class="footer-container">
         <div class="footer-content">
             <div class="footer-logo">
-                <div class="logo-background">
-                    <img src="../../assets/images/logo.png" alt="logo-farm" style="width: 4rem;">
-                </div>
+                <div class="logo-background"></div>
                 <p>Lorem ipsum dolor sit amet consectetur. Tortor viverra elementum mauris suscipit porttitor interdum
                     mauris egestas. Et consectetur nunc proin vitae congue odio proin purus. Nisi tristique tincidunt
                     diam et. Tellus leo eu felis odio fusce massa nisl sit integer. Vel gravida lacus nec.</p>

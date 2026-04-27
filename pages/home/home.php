@@ -309,9 +309,7 @@ include '../../includes/header.php';
     <footer class="footer-container">
         <div class="footer-content">
             <div class="footer-logo">
-                <div class="logo-background">
-                    <img src="../../assets/images/logo.png" alt="logo-footer" style="width: 4rem;">
-                </div>
+                <div class="logo-background"></div>
 
                 <p>Our commitment lies in promoting sustainable farming practices and bridging the gap between farmers
                     and markets, empowering communities for a better tomorrow.</p>
