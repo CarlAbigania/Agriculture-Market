@@ -1,5 +1,33 @@
 <?php
 include '../../includes/header.php';
+
+$subscriber_success = '';
+$subscriber_error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subscribe'])) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+
+    if (!empty($first_name) && !empty($last_name) && !empty($email)) {
+        require_once '../../includes/db.php';
+        $stmt = $conn->prepare("INSERT INTO subscribers (first_name, last_name, email) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $first_name, $last_name, $email);
+
+        if ($stmt->execute()) {
+            $subscriber_success = "Thank you for subscribing!";
+        } else {
+            if ($conn->errno == 1062) {
+                $subscriber_error = "This email is already subscribed.";
+            } else {
+                $subscriber_error = "An error occurred. Please try again.";
+            }
+        }
+        $stmt->close();
+    } else {
+        $subscriber_error = "All fields are required.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -296,11 +324,17 @@ include '../../includes/header.php';
             <h3>Join Our Mailing List</h3>
             <p>Be the first to know about our products and services. We will deliver<br> it directly to your mailbox.
             </p>
-            <form class="join-us-form">
-                <input type="text" placeholder="Enter your first name">
-                <input type="text" placeholder="Enter your last name">
-                <input type="email" placeholder="Enter your email">
-                <button type="submit">Submit</button>
+            <form class="join-us-form" method="POST" action="home.php">
+                <?php if ($subscriber_success): ?>
+                    <p style="color: #00e676; grid-column: span 2; font-weight: bold;"><?php echo $subscriber_success; ?></p>
+                <?php endif; ?>
+                <?php if ($subscriber_error): ?>
+                    <p style="color: #ff5733; grid-column: span 2; font-weight: bold;"><?php echo $subscriber_error; ?></p>
+                <?php endif; ?>
+                <input type="text" name="first_name" placeholder="Enter your first name" required>
+                <input type="text" name="last_name" placeholder="Enter your last name" required>
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit" name="subscribe">Submit</button>
             </form>
         </div>
     </section>
