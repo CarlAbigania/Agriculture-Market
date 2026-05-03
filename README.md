@@ -6,4 +6,4 @@ login
 - admin123
 
 start
-- start http://agri.local
+- start http://agrimarket.local
